@@ -62,7 +62,7 @@ router.get('/consultarHistorialRenovaciones/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const historial = await seguroMedico.consultarHistorialRenovaciones(id);
-    res.json({ historial });
+    res.json({ historial: historial.toString() });
   } catch (error) {
     res.status(500).send(`Error al consultar el historial de renovaciones: ${error.message}`);
   }
